@@ -33,7 +33,7 @@ var settings = {
 emojione.ascii = true;
 emojione.imageType = 'png';
 emojione.unicodeAlt = false;
-document.getElementById('version').innerHTML = version;
+// document.getElementById('version').innerHTML = version;
 
 
 /* Connection */
@@ -143,7 +143,7 @@ var connect = function() {
                     break;
 
                 case 'success':
-                    document.getElementById('send').childNodes[0].nodeValue = 'Send';
+                    document.getElementById('send').childNodes[0].nodeValue = '发送';
                     updateBar('mdi-content-send', 'Enter your message here', false);
                     connected = true;
                     settings.name = username;
@@ -157,7 +157,7 @@ var connect = function() {
 
                 case 'connection':
                     var userip = data.user.ip ? ' [' + data.user.ip + ']' : '';
-                    showChat('info', null, data.user.un + userip + ' connected to the server');
+                    showChat('info', null, data.user.un + userip + ' 已嵌入djb');
 
                     clients[data.user.id] = data.user;
                     document.getElementById('users').innerHTML = Object.keys(clients).length + ' USERS';
@@ -221,7 +221,7 @@ var connect = function() {
         if(data.type == 'global' || data.type == 'pm' || data.type == 'mention') {
             if(!focus) {
                 unread++;
-                document.title = '(' + unread + ') Node.JS Chat';
+                document.title = '(' + unread + ') 乞丐聊天室';
 
                 if(settings.sound) {
                     blop.play();
